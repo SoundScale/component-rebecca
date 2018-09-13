@@ -1,0 +1,126 @@
+/* Related Tracks Styling */
+.related-tracks-wrapper {
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  border: 1px solid red;
+  width: 500px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: 500px;
+  background-color:lightgrey;
+  padding: 10px;
+  grid-row-gap: 10px;
+}
+
+.related-track {
+
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 150px 300px;
+}
+
+.related-tracks-title {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(245, 13, 13, 0.8);
+}
+
+.track-artist {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 2px;
+  font-size: 20px;
+  height: 31px;
+  text-align: center;
+}
+.track-attribute {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 2px;
+  font-size: 20px;
+  height: 31px;
+  text-align: center;
+}
+.track-image {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(9, 209, 69, 0.8);
+  padding: 2px;
+  font-size: 20px;
+  text-align: center;
+}
+.track-title {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 2px;
+  font-size: 20px;
+  height: 31px;
+  text-align: center;
+}
+
+
+/* Related Albums Styling */
+.related-albums-wrapper {
+  position: absolute;
+  top: 600px;
+  right: 0px;
+  border: 1px solid red;
+  width: 500px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: 500px;
+  background-color:lightgrey;
+  padding: 10px;
+  grid-row-gap: 10px;
+}
+
+.related-album {
+
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 150px 300px;
+}
+
+.related-albums-title {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(245, 13, 13, 0.8);
+}
+
+.album-artist {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 2px;
+  font-size: 20px;
+  height: 31px;
+  text-align: center;
+}
+.album-type {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 2px;
+  font-size: 20px;
+  height: 31px;
+  text-align: center;
+}
+.album-image {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(9, 209, 69, 0.8);
+  padding: 2px;
+  font-size: 20px;
+  text-align: center;
+}
+.album-title {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 2px;
+  font-size: 20px;
+  height: 31px;
+  text-align: center;
+}
