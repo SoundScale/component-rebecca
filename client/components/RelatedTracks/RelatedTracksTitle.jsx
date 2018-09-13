@@ -8,7 +8,7 @@ class RelatedTracksTitle extends React.Component {
   }
   render() {
     return (
-      <div className="related-tracks-title">Related Tracks Title</div>
+      <div className="related-tracks-title">Related Tracks</div>
     )
   }
 }
