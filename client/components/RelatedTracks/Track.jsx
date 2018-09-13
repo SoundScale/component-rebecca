@@ -13,7 +13,7 @@ class Track extends React.Component {
   }
 
   render() {
-    console.log('track state', this.props.track.artist)
+    // console.log('track state', this.props.track.artist)
     const {
       songTitle,
       songImage,
@@ -26,7 +26,7 @@ class Track extends React.Component {
     return (
       <div className="related-track">
         <TrackImage songImage={songImage} />
-        <div>
+        <div className="related-track-info">
           <TrackArtist artist={artist} />
           <TrackTitle songTitle={songTitle} />
           <TrackAttributes
