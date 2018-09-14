@@ -5,7 +5,6 @@ class Reposts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false,
     };
   }
 

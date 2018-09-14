@@ -7,7 +7,7 @@ class AlbumArtist extends React.Component {
   }
 
   render() {
-    console.log(this.props.artist);
+    // console.log(this.props.artist);
     const { artistName } = this.props.artist;
     return (<div className="track-artist attribute-hover">{artistName}</div>);
   }

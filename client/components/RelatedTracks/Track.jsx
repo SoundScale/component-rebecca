@@ -8,7 +8,7 @@ class Track extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      temp: [],
+      hover: true,
     };
   }
 
@@ -23,19 +23,24 @@ class Track extends React.Component {
       artist,
     } = this.props.track;
     return (
-      <div className="related-track">
-        <TrackImage songImage={songImage} />
-        <div className="related-track-info">
-          <TrackArtist artist={artist} />
-          <TrackTitle songTitle={songTitle} />
-          <TrackAttributes
-            comments={songNumComments}
-            likes={songNumLikes}
-            plays={songNumPlays}
-            reposts={songNumReposts}
-          />
+      <div>
+        <div>
+          <div className="related-track">
+            <TrackImage songImage={songImage} />
+            <div className="related-track-info">
+              <TrackArtist artist={artist} />
+              <TrackTitle songTitle={songTitle} />
+              <TrackAttributes
+                comments={songNumComments}
+                likes={songNumLikes}
+                plays={songNumPlays}
+                reposts={songNumReposts}
+              />
+            </div>
+          </div>
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 

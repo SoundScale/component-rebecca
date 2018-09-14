@@ -1,6 +1,7 @@
 const React = require('react');
 const Track = require('./Track.jsx');
 const RelatedTracksTitle = require('./RelatedTracksTitle.jsx');
+const Container = require('./hoverComponents/container.jsx');
 
 class RelatedTracks extends React.Component {
   constructor(props) {
@@ -14,7 +15,16 @@ class RelatedTracks extends React.Component {
     return (
       <div className="related-tracks-wrapper">
         <RelatedTracksTitle />
-        {relatedTracks.map((track, index) => <Track key={index} track={track} />)}
+        <div className="track-list-container">
+          {relatedTracks.map((track, index) => (
+            <div className="track-container" key={index}>
+              <Track track={track} />
+              <div className="hover-container">
+                <Container />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
