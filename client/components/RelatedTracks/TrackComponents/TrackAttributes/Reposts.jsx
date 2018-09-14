@@ -9,16 +9,6 @@ class Reposts extends React.Component {
     };
   }
 
-  mouseOut() {
-    console.log("Mouse out!!!");
-    this.setState({ hover: false });
-  }
-
-  mouseOver() {
-    console.log("Mouse over!!!");
-    this.setState({ hover: true });
-  }
-
   render() {
     const { reposts } = this.props;
     return (
