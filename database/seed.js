@@ -43,7 +43,7 @@ const buildData = (numOfSongs) => {
   }
   for (let i = 1; i <= numOfSongs; i += 1) {
     songs.push({
-      songTitle: faker.lorem.words(),
+      songTitle: faker.name.jobTitle(),
       songImage: faker.image.avatar(),
       songLength: `${getRandomInt(4)}:${getRandomInt(59)}`,
       songGenre: faker.lorem.word(),
@@ -58,7 +58,7 @@ const buildData = (numOfSongs) => {
   for (let j = 1; j <= numOfSongs; j += 1) {
     for (let i = 1; i <= 3; i += 1) {
       albums.push({
-        albumTitle: faker.lorem.words(),
+        albumTitle: faker.commerce.productName(),
         albumType: faker.random.word(),
         albumImage: faker.image.avatar(),
         artistId: getRandomInt(numOfSongs / 2),

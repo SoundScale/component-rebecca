@@ -1,4 +1,7 @@
 const React = require('react');
+const SVG = require('react-inlinesvg');
+const KeyImage = require('./image.svg');
+const ViewAll = require('./../ViewAll.jsx');
 
 class RelatedTracksTitle extends React.Component {
   constructor(props) {
@@ -6,10 +9,16 @@ class RelatedTracksTitle extends React.Component {
     this.state = {
     };
   }
+
   render() {
     return (
-      <div className="related-tracks-title">Related Tracks Title</div>
-    )
+      <div className="related-tracks-title">
+        <img className="related-tracks-title-image" alt="wave" />
+        {/* <SVG src={KeyImage} /> */}
+        Related tracks
+        <ViewAll />
+      </div>
+    );
   }
 }
 

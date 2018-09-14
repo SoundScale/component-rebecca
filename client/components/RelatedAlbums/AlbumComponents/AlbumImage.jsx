@@ -1,5 +1,5 @@
 const React = require('react');
 
-const AlbumImage = props => <div className="album-image">Album Image</div>;
+const AlbumImage = ({ image }) => <img src={image} className="track-image" alt="pic" />;
 
 module.exports = AlbumImage;

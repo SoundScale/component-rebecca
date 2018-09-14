@@ -1,5 +1,5 @@
 const React = require('react');
 
-const TrackImage = props => <div className="track-image">Track Image</div>;
+const TrackImage = ({ songImage }) => <img src={songImage} className="track-image" alt="pic" />;
 
 module.exports = TrackImage;

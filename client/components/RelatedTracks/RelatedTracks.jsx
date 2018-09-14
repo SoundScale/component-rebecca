@@ -1,5 +1,4 @@
 const React = require('react');
-const axios = require('axios');
 const Track = require('./Track.jsx');
 const RelatedTracksTitle = require('./RelatedTracksTitle.jsx');
 
@@ -11,12 +10,13 @@ class RelatedTracks extends React.Component {
   }
 
   render() {
+    const { relatedTracks } = this.props;
     return (
       <div className="related-tracks-wrapper">
         <RelatedTracksTitle />
-        {this.props.relatedTracks.map((track, index) => <Track key={index} track={track} />)}
+        {relatedTracks.map((track, index) => <Track key={index} track={track} />)}
       </div>
-    )
+    );
   }
 }
 

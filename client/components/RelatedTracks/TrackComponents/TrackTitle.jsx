@@ -7,7 +7,8 @@ class TrackTitle extends React.Component {
   }
 
   render() {
-    return (<div className="track-title">Track Title</div>);
+    const { songTitle } = this.props;
+    return (<div className="track-title">{songTitle}</div>);
   }
 }
 

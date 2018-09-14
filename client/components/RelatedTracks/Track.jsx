@@ -13,13 +13,27 @@ class Track extends React.Component {
   }
 
   render() {
+    const {
+      songTitle,
+      songImage,
+      songNumComments,
+      songNumLikes,
+      songNumPlays,
+      songNumReposts,
+      artist,
+    } = this.props.track;
     return (
       <div className="related-track">
-        <TrackImage />
-        <div>
-          <TrackArtist />
-          <TrackTitle />
-          <TrackAttributes />
+        <TrackImage songImage={songImage} />
+        <div className="related-track-info">
+          <TrackArtist artist={artist} />
+          <TrackTitle songTitle={songTitle} />
+          <TrackAttributes
+            comments={songNumComments}
+            likes={songNumLikes}
+            plays={songNumPlays}
+            reposts={songNumReposts}
+          />
         </div>
       </div>);
   }

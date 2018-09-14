@@ -7,7 +7,8 @@ class AlbumType extends React.Component {
   }
 
   render() {
-    return (<div className="album-type">Album Types</div>);
+    const { type } = this.props;
+    return (<div className="album-type">{type}</div>);
   }
 }
 

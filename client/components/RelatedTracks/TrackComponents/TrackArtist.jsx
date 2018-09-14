@@ -7,7 +7,9 @@ class TrackArtist extends React.Component {
   }
 
   render() {
-    return (<div className="track-artist">Track Artist</div>);
+    // console.log(this.props.artist);
+    const { artistName } = this.props.artist;
+    return (<div className="track-artist">{artistName}</div>);
   }
 }
 

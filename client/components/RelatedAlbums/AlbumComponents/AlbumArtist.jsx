@@ -7,7 +7,9 @@ class AlbumArtist extends React.Component {
   }
 
   render() {
-    return (<div className="album-artist">Album Artist</div>);
+    console.log(this.props.artist);
+    const { artistName } = this.props.artist;
+    return (<div className="track-artist">{artistName}</div>);
   }
 }
 
