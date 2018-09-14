@@ -1,4 +1,5 @@
 const React = require('react');
+const convert = require('../../../convert.js');
 
 class Comments extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Comments extends React.Component {
     return (
       <div className="track-attribute">
         <img className="comment-image" alt="comment" />
-        <span>{comments}</span>
+        <span className="attribute-hover">{convert(comments)}</span>
       </div>
     );
   }
