@@ -11,7 +11,7 @@ class Likes extends React.Component {
     return (
       <div className="track-attribute">
         <img className="like-image" alt="like" />
-        <span>{likes}</span>
+        <span className="attribute-hover">{likes}</span>
       </div>
     );
   }

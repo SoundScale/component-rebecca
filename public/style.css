@@ -107,6 +107,9 @@
   max-height:80%;
 }
 
+.attribute-hover:hover {
+  color: rgba(10, 9, 9, 0.8);
+}
 
 /* Related Albums Styling */
 
@@ -149,7 +152,7 @@
   height: 31px;
   text-align: center;
 }
-/* jksadhfas;dhf;as ////////////////////////////////*/
+/* Alum For Sure Needed ////////////////////////////////*/
 .related-albums-wrapper {
   position: absolute;
   top: 475px;
