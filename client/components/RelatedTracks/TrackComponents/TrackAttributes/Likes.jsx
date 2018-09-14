@@ -8,7 +8,12 @@ class Likes extends React.Component {
 
   render() {
     const { likes } = this.props;
-    return (<div className="">{likes}</div>);
+    return (
+      <div className="track-attribute">
+        <img className="like-image" alt="like" />
+        <span>{likes}</span>
+      </div>
+    );
   }
 }
 

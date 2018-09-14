@@ -8,7 +8,12 @@ class Comments extends React.Component {
 
   render() {
     const { comments } = this.props;
-    return (<div className="">{comments}</div>);
+    return (
+      <div className="track-attribute">
+        <img className="comment-image" alt="comment" />
+        <span>{comments}</span>
+      </div>
+    );
   }
 }
 

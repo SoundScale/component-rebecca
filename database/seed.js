@@ -43,7 +43,7 @@ const buildData = (numOfSongs) => {
   }
   for (let i = 1; i <= numOfSongs; i += 1) {
     songs.push({
-      songTitle: faker.lorem.words(),
+      songTitle: faker.name.jobTitle(),
       songImage: faker.image.avatar(),
       songLength: `${getRandomInt(4)}:${getRandomInt(59)}`,
       songGenre: faker.lorem.word(),

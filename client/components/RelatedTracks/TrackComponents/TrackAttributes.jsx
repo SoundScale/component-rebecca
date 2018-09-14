@@ -13,7 +13,7 @@ class TrackAttributes extends React.Component {
   render() {
     const { comments, plays, likes, reposts } = this.props;
     return (
-      <div className="track-attribute">
+      <div className="track-attributes">
         <Plays plays={plays} />
         <Likes likes={likes} />
         <Reposts reposts={reposts} />

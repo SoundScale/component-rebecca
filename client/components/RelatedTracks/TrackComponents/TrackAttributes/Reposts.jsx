@@ -8,7 +8,12 @@ class Reposts extends React.Component {
 
   render() {
     const { reposts } = this.props;
-    return (<div className="">{reposts}</div>);
+    return (
+      <div className="track-attribute">
+        <img className="repost-image" alt="reposts" />
+        <span>{reposts}</span>
+      </div>
+    );
   }
 }
 

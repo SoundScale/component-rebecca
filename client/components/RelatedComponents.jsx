@@ -1,7 +1,7 @@
 const React = require('react');
 const axios = require('axios');
-const RelatedTracks = require('./components/RelatedTracks/RelatedTracks.jsx');
-const RelatedAlbums = require('./components/RelatedAlbums/RelatedAlbums.jsx');
+const RelatedTracks = require('./RelatedTracks/RelatedTracks.jsx');
+const RelatedAlbums = require('./RelatedAlbums/RelatedAlbums.jsx');
 
 class RelatedComponents extends React.Component {
   constructor(props) {
