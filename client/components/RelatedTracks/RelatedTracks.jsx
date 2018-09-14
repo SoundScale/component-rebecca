@@ -16,7 +16,7 @@ class RelatedTracks extends React.Component {
         <RelatedTracksTitle />
         {relatedTracks.map((track, index) => <Track key={index} track={track} />)}
       </div>
-    )
+    );
   }
 }
 

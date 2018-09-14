@@ -13,13 +13,19 @@ class Album extends React.Component {
   }
 
   render() {
+    const {
+      albumTitle,
+      albumType,
+      albumImage,
+      artist
+    } = this.props.album;
     return (
-      <div className="related-album">
-        <AlbumImage />
-        <div>
-          <AlbumArtist />
-          <AlbumTitle />
-          <AlbumType />
+      <div className="related-track">
+        <AlbumImage image={albumImage} />
+        <div className="related-track-info">
+          <AlbumArtist artist={artist} />
+          <AlbumTitle title={albumTitle} />
+          <AlbumType type={albumType} />
         </div>
       </div>);
   }

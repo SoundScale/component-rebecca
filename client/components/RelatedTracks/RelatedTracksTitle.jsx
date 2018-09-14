@@ -1,7 +1,7 @@
 const React = require('react');
 const SVG = require('react-inlinesvg');
 const KeyImage = require('./image.svg');
-const ViewAll = require('./ViewAll.jsx');
+const ViewAll = require('./../ViewAll.jsx');
 
 class RelatedTracksTitle extends React.Component {
   constructor(props) {

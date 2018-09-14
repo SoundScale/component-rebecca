@@ -7,9 +7,10 @@ class RelatedComponents extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      loadingTracks: true,
+      loadingAlbums: true,
       tracks: null,
-      albums: ['Album one', 'Album two', 'Album three'],
+      albums: null,
     };
   }
 
@@ -19,11 +20,10 @@ class RelatedComponents extends React.Component {
 
   loadData() {
     const songId = 2;
-    const self = this;
     axios.get(`http://localhost:3002/relatedTracks/${songId}`)
       .then(({ data }) => {
         console.log('Related Tracks', data);
-        this.setState({ tracks: data, loading: false });
+        this.setState({ tracks: data, loadingTracks: false });
       })
       .catch((error) => {
         console.log(error);
@@ -31,10 +31,7 @@ class RelatedComponents extends React.Component {
     axios.get(`http://localhost:3002/relatedAlbums/${songId}`)
       .then(({ data }) => {
         console.log('Related Albums', data);
-        this.setState(() => ({
-          albums: data,
-          loading: false,
-        }));
+        this.setState({ albums: data, loadingAlbums: false });
       })
       .catch((error) => {
         console.log(error);
@@ -42,8 +39,13 @@ class RelatedComponents extends React.Component {
   }
 
   render() {
-    const { loading, tracks, albums } = this.state;
-    if (loading) {
+    const {
+      loadingTracks,
+      loadingAlbums,
+      tracks,
+      albums,
+    } = this.state;
+    if (loadingTracks || loadingAlbums) {
       return <p>Loading ...</p>;
     }
     return (

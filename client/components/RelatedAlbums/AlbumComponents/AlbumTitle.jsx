@@ -7,7 +7,8 @@ class AlbumTitle extends React.Component {
   }
 
   render() {
-    return (<div className="album-title">Album Title</div>);
+    const { title } = this.props;
+    return (<div className="track-title">{title}</div>);
   }
 }
 

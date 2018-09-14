@@ -1,4 +1,5 @@
 const React = require('react');
+const ViewAll = require('./../ViewAll.jsx');
 
 class RelatedAlbumsTitle extends React.Component {
   constructor(props) {
@@ -6,10 +7,15 @@ class RelatedAlbumsTitle extends React.Component {
     this.state = {
     };
   }
+
   render() {
     return (
-      <div className="related-albums-title">Related Albums Title</div>
-    )
+      <div className="related-tracks-title">
+        <img className="in-albums-title-image" alt="square" />
+        In albums
+        <ViewAll />
+      </div>
+    );
   }
 }
 

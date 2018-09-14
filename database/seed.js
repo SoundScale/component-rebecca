@@ -58,7 +58,7 @@ const buildData = (numOfSongs) => {
   for (let j = 1; j <= numOfSongs; j += 1) {
     for (let i = 1; i <= 3; i += 1) {
       albums.push({
-        albumTitle: faker.lorem.words(),
+        albumTitle: faker.commerce.productName(),
         albumType: faker.random.word(),
         albumImage: faker.image.avatar(),
         artistId: getRandomInt(numOfSongs / 2),
