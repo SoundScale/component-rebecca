@@ -143,7 +143,7 @@
   right: 32px;
   height: 80px;
   width: 450px;
-  opacity: 1;
+  opacity: 0;
 }
 
 .hover-container:hover {
@@ -164,12 +164,40 @@
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDcgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlBsYXkgMjQ8L3RpdGxlPjxwYXRoIGQ9Ik0wIDEybDEuNjE1LTZMMCAwbDcgNi03IDZ6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=);
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  outline: none;
+}
+
+.sc-button-pause {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 45px;
+  height: 45px;
+  line-height: 42px;
+  background-color: #f50;
+  border-color: #f50;
+  border-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDggMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlBhdXNlIDI0PC90aXRsZT48cGF0aCBkPSJNNSAwdjEwaDNWMEg1ek0wIDB2MTBoM1YwSDB6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=);
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  outline: none;
 }
 
 .sc-hover-button {
+   background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(9, 209, 69, 0.8);
   position: absolute;
   background-color: white;
-  border: 1px thin rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(212, 207, 207, 0.8);
   padding: 5px;
   text-align: center;
   text-decoration: none;
@@ -179,23 +207,61 @@
   border-radius: 5px;
   height: 40%;
   width: 8%;
+  opacity: 1;
 }
 
 .sc-hover-button:hover {
-  border: 1px solid rgba(146, 142, 142, 0.8);
+  border: 1px solid rgba(121, 116, 116, 0.8);
+  opacity: 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  transform: translateZ(0);
+
 }
 
 .like-button {
   top: 20px;
   right: 76px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c3RhdHNfbGlrZXNfZ3JleTwvdGl0bGU+PHBhdGggZD0iTTEwLjgwNSAzYy0yLjAyIDAtMi44MDQgMi4zNDUtMi44MDQgMi4zNDVTNy4yMTMgMyA1LjE5NiAzQzMuNDk0IDMgMS43NDggNC4wOTYgMi4wMyA2LjUxNGMuMzQ0IDIuOTUzIDUuNzI1IDYuNDc5IDUuOTYzIDYuNDg3LjIzOC4wMDggNS43MzgtMy43MjIgNS45ODgtNi41QzE0LjE4OCA0LjIwMSAxMi41MDcgMyAxMC44MDUgM3oiIGZpbGw9IiMyMjIiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: white;
+  outline: none;
+}
+
+.like-button-liked {
+  top: 20px;
+  right: 76px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+c3RhdHNfbGlrZXNfZ3JleTwvdGl0bGU+PHBhdGggZD0iTTEwLjgwNSAzYy0yLjAyIDAtMi44MDQgMi4zNDUtMi44MDQgMi4zNDVTNy4yMTMgMyA1LjE5NiAzQzMuNDk0IDMgMS43NDggNC4wOTYgMi4wMyA2LjUxNGMuMzQ0IDIuOTUzIDUuNzI1IDYuNDc5IDUuOTYzIDYuNDg3LjIzOC4wMDggNS43MzgtMy43MjIgNS45ODgtNi41QzE0LjE4OCA0LjIwMSAxMi41MDcgMyAxMC44MDUgM3oiIGZpbGw9IiNGNTAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: white;
+  outline: none;
 }
 
 .options-button {
   top: 20px;
   right: 30px;
-  background: url(https://upload.wikimedia.org/wikipedia/commons/3/30/Maya_3.svg);
-  background-position: 2px -15px;
-  opacity: 1;
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iNCIgdmlld0JveD0iMCAwIDE0IDQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPm1vcmU8L3RpdGxlPjxnIGZpbGw9IiMyMjIiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMiIgcj0iMiIvPjwvZz48L3N2Zz4=);
+  background-repeat: no-repeat;
+  background-position: 6px center;
+  background-color: white;
+  background-size: 65%;
+  outline: none;
+}
+
+.options-button-clicked {
+  top: 20px;
+  right: 30px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iNCIgdmlld0JveD0iMCAwIDE0IDQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPm1vcmU8L3RpdGxlPjxnIGZpbGw9IiNGNTAiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMiIgcj0iMiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMiIgcj0iMiIvPjwvZz48L3N2Zz4=);
+  background-repeat: no-repeat;
+  background-position: 6px center;
+  background-color: white;
+  background-size: 65%;
+  outline: none;
 }
 
 /* Related Albums Styling */
@@ -355,3 +421,19 @@
   transition: opacity .3s;
   background-position: center center;
 } */
+
+.menu {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+.menu-item {
+  cursor: pointer;
+  padding: 5px;
+  height: 28px;
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
+.menu-item:hover {
+  color: #2980b9;
+}
