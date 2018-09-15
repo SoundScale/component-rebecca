@@ -13,16 +13,25 @@
   grid-row-gap: 2px;
 }
 
+.related-track-list {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  /* position: absolute; */
+}
+
 .related-track {
   /* background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8); */
-  padding: 0px;
+  /* position: absolute;
+  top: 125px;
+  right: 0px; */
+  padding: 15px;
   font-size: 30px;
   text-align: center;
   display: grid;
   grid-template-columns: 100px 350px;
   height: 70px;
-  border-bottom: 2px
+  border-bottom: 2px;
 }
 
 .related-tracks-title {
@@ -56,6 +65,8 @@
 .track-artist {
   /* background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8); */
+  position: relative;
+  z-index: 10000;
   color: rgba(163, 156, 156, 0.8);
   padding: 0px;
   height: 31px;
@@ -95,6 +106,7 @@
   text-align: left;
   display: grid;
   grid-template-columns: auto auto;
+  z-index: 10000;
 }
 
 .track-image {
@@ -107,12 +119,90 @@
   max-height:80%;
 }
 
+.track-list-container {
+  /* position: relative; */
+}
+
+.track-container {
+  position: relative;
+}
+
+.attribute-hover:hover {
+  color: rgba(10, 9, 9, 0.8);
+  z-index: 1000000;
+}
+
+/* Hover Component Styling */
+
+.hover-container {
+  /* float: top; */
+  /* background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(9, 209, 69, 0.8); */
+  position: absolute;
+  top: 18px;
+  right: 32px;
+  height: 80px;
+  width: 450px;
+  opacity: 1;
+}
+
+.hover-container:hover {
+  opacity: 1;
+}
+
+.sc-button-play {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 45px;
+  height: 45px;
+  line-height: 42px;
+  background-color: #f50;
+  border-color: #f50;
+  border-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.sc-hover-button {
+  position: absolute;
+  background-color: white;
+  border: 1px thin rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 2px 2px;
+  border-radius: 5px;
+  height: 40%;
+  width: 8%;
+}
+
+.sc-hover-button:hover {
+  border: 1px solid rgba(146, 142, 142, 0.8);
+}
+
+.like-button {
+  top: 20px;
+  right: 76px;
+}
+
+.options-button {
+  top: 20px;
+  right: 30px;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/3/30/Maya_3.svg);
+  background-position: 2px -15px;
+  opacity: 1;
+}
 
 /* Related Albums Styling */
 
 .related-album {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8); */
   padding: 10px;
   font-size: 30px;
   text-align: center;
@@ -149,8 +239,10 @@
   height: 31px;
   text-align: center;
 }
-/* jksadhfas;dhf;as ////////////////////////////////*/
+/* Album For Sure Needed ////////////////////////////////*/
 .related-albums-wrapper {
+  /* background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8); */
   position: absolute;
   top: 475px;
   right: 0px;
@@ -222,3 +314,44 @@
   height: 35px;
   width: 35px;
 }
+
+
+
+
+/* .sc-button {
+  display: inline-block;
+  position: relative;
+  height: 26px;
+  margin: 0;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  box-sizing: border-box;
+} */
+/*
+.sc-button-play:before, .sc-button-pause:before, .sc-button-prev:before, .sc-button-next:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 1px;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: opacity .3s;
+  background-position: center center;
+} */

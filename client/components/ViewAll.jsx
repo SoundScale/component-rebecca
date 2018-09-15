@@ -8,7 +8,7 @@ class ViewAll extends React.Component {
   }
 
   render() {
-    return (<span className="related-tracks-view-all">View all</span>);
+    return (<span className="related-tracks-view-all attribute-hover">View all</span>);
   }
 }
 

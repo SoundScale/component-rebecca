@@ -1,9 +1,11 @@
 const React = require('react');
+const convert = require('../../../convert.js');
 
 class Reposts extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
   }
 
   render() {
@@ -11,7 +13,9 @@ class Reposts extends React.Component {
     return (
       <div className="track-attribute">
         <img className="repost-image" alt="reposts" />
-        <span>{reposts}</span>
+        <span className="attribute-hover">
+          {convert(reposts)}
+        </span>
       </div>
     );
   }
