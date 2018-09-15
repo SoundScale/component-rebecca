@@ -32,7 +32,6 @@
   grid-template-columns: 100px 350px;
   height: 70px;
   border-bottom: 2px;
-  z-index: -1;
 }
 
 .related-tracks-title {
@@ -66,6 +65,8 @@
 .track-artist {
   /* background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8); */
+  position: relative;
+  z-index: 10000;
   color: rgba(163, 156, 156, 0.8);
   padding: 0px;
   height: 31px;
@@ -105,6 +106,7 @@
   text-align: left;
   display: grid;
   grid-template-columns: auto auto;
+  z-index: 10000;
 }
 
 .track-image {
@@ -127,20 +129,21 @@
 
 .attribute-hover:hover {
   color: rgba(10, 9, 9, 0.8);
+  z-index: 1000000;
 }
 
 /* Hover Component Styling */
 
 .hover-container {
-  position: absolute;
   /* float: top; */
   /* background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(9, 209, 69, 0.8); */
+  position: absolute;
   top: 18px;
   right: 32px;
   height: 80px;
   width: 450px;
-  opacity: 0;
+  opacity: 1;
 }
 
 .hover-container:hover {
@@ -149,10 +152,10 @@
 
 .sc-button-play {
   position: absolute;
-  top: 18px;
-  left: 20px;
-  width: 40px;
-  height: 40px;
+  top: 16px;
+  left: 16px;
+  width: 45px;
+  height: 45px;
   line-height: 42px;
   background-color: #f50;
   border-color: #f50;
@@ -161,10 +164,39 @@
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
-  z-index: 100;
-  /* opacity: 0; */
 }
 
+.sc-hover-button {
+  position: absolute;
+  background-color: white;
+  border: 1px thin rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 2px 2px;
+  border-radius: 5px;
+  height: 40%;
+  width: 8%;
+}
+
+.sc-hover-button:hover {
+  border: 1px solid rgba(146, 142, 142, 0.8);
+}
+
+.like-button {
+  top: 20px;
+  right: 76px;
+}
+
+.options-button {
+  top: 20px;
+  right: 30px;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/3/30/Maya_3.svg);
+  background-position: 2px -15px;
+  opacity: 1;
+}
 
 /* Related Albums Styling */
 

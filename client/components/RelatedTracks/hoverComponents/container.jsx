@@ -12,6 +12,8 @@ class Container extends React.Component {
     return (
       <div>
         <span className="sc-button-play" />
+        <button type="button" className="sc-hover-button like-button" />
+        <button type="button" className="sc-hover-button options-button" />
       </div>
     );
   }
