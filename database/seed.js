@@ -33,7 +33,7 @@ const buildData = (numOfSongs) => {
 
   for (let i = 1; i <= numOfSongs / 2; i += 1) {
     artists.push({
-      artistNumFollowers: getRandomInt(6000000),
+      artistNumFollowers: getRandomInt(3000000),
       artistCity: faker.address.city(),
       artistCountry: faker.address.country(),
       artistProfileImage: faker.image.avatar(),
@@ -49,9 +49,9 @@ const buildData = (numOfSongs) => {
       songGenre: faker.lorem.word(),
       songPostedDate: `${getRandomInt(9)} years ago`,
       songNumPlays: getRandomInt(2000000),
-      songNumLikes: getRandomInt(99999),
+      songNumLikes: getRandomInt(1500000),
       songNumReposts: getRandomInt(20000),
-      songNumComments: getRandomInt(1000),
+      songNumComments: getRandomInt(10000),
       artistId: getRandomInt(numOfSongs / 2),
     });
   }
