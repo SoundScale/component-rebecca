@@ -1,4 +1,5 @@
 const React = require('react');
+const ArtistPopUp = require('./../../ArtistProfile/ArtistPopUp.jsx');
 
 class TrackArtist extends React.Component {
   constructor(props) {
@@ -8,8 +9,8 @@ class TrackArtist extends React.Component {
 
   render() {
     // console.log(this.props.artist);
-    const { artistName } = this.props.artist;
-    return (<div className="track-artist attribute-hover">{artistName}</div>);
+    const { artist } = this.props;
+    return <div><ArtistPopUp artist={artist} /></div>;
   }
 }
 
