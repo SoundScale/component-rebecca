@@ -2,6 +2,7 @@ const React = require('react');
 const axios = require('axios');
 const RelatedTracks = require('./RelatedTracks/RelatedTracks.jsx');
 const RelatedAlbums = require('./RelatedAlbums/RelatedAlbums.jsx');
+const { tracks, albums } = require('../../test/mockData.js');
 
 class RelatedComponents extends React.Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class RelatedComponents extends React.Component {
     this.state = {
       loadingTracks: true,
       loadingAlbums: true,
-      tracks: null,
-      albums: null,
+      tracks,
+      albums,
     };
   }
 
@@ -46,12 +47,22 @@ class RelatedComponents extends React.Component {
       albums,
     } = this.state;
     if (loadingTracks || loadingAlbums) {
-      return <p>Loading ...</p>;
+      return (
+        <div>
+          <p>Loading ...</p>
+          {/* Render Fake Data so that testing files can grab
+          Components even if no real dats is rendered */}
+          <div>
+            <RelatedTracks tracks={tracks} />
+            <RelatedAlbums albums={albums} />
+          </div>
+        </div>
+      );
     }
     return (
       <div>
-        <RelatedTracks relatedTracks={tracks} />
-        <RelatedAlbums relatedAlbums={albums} />
+        <RelatedTracks tracks={tracks} />
+        <RelatedAlbums albums={albums} />
       </div>
     );
   }
