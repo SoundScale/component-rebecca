@@ -17,7 +17,7 @@ class LikeButton extends React.Component {
     if (liked) {
       return <button type="button" className="sc-hover-button like-button-liked" onClick={this.likeClick.bind(this)} />;
     }
-    return <button type="button" className="sc-hover-button like-button" onClick={this.likeClick.bind(this)} />;
+    return <button type="button" className="sc-hover-button like-button border-hover" onClick={this.likeClick.bind(this)} />;
   }
 }
 
