@@ -11,12 +11,12 @@ class RelatedTracks extends React.Component {
   }
 
   render() {
-    const { relatedTracks } = this.props;
+    const { tracks } = this.props;
     return (
       <div className="related-tracks-wrapper">
         <RelatedTracksTitle />
         <div className="track-list-container">
-          {relatedTracks.map((track, index) => (
+          {tracks.map((track, index) => (
             <div className="track-container" key={index}>
               <Track track={track} />
               <div className="hover-container">

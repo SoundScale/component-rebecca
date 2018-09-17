@@ -29,6 +29,7 @@ class OptionsButton extends React.Component {
           button
         )}
         closeOnDocumentClick
+        arrow={false}
         onOpen={click}
         onClose={click}
         contentStyle={{ width: "200px", padding: "0px", border: "none" }}

@@ -10,23 +10,23 @@ class OptionsWindow extends React.Component {
     return (
       <div className="options-window">
         <span className="options-window-item">
-          <img className="repost-image-options" alt="repostimg" />
+          <span className="repost-image-options" alt="repostimg" />
           Repost
         </span>
         <span className="options-window-item">
-          <img className="share-image-options" alt="repostimg" />
+          <span className="share-image-options" alt="repostspan" />
           Share
         </span>
         <span className="options-window-item">
-          <img className="nextup-image-options" alt="repostimg" />
+          <span className="nextup-image-options" alt="repostspan" />
           Add to Next up
         </span>
         <span className="options-window-item">
-          <img className="addplaylist-image-options" alt="repostimg" />
+          <span className="addplaylist-image-options" alt="repostspan" />
           Add to playlist
         </span>
         <span className="options-window-item">
-          <img className="station-image-options" alt="repostimg" />
+          <span className="station-image-options" alt="repostspan" />
           Station
         </span>
       </div>

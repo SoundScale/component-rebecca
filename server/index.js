@@ -12,7 +12,6 @@ app.use(cors());
 app.use('/', express.static('public'));
 
 app.get('/:id', (req, res) => {
-  console.log(req.params.id);
   res.send('Hello World!');
 });
 

@@ -11,11 +11,11 @@ class RelatedAlbums extends React.Component {
   }
 
   render() {
-    const { relatedAlbums } = this.props;
+    const { albums } = this.props;
     return (
       <div className="related-albums-wrapper">
         <RelatedAlbumsTitle />
-        {relatedAlbums.map((album, index) => <Album key={index} album={album} />)}
+        {albums.map((album, index) => <Album key={index} album={album} />)}
       </div>
     );
   }
