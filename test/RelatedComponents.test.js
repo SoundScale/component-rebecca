@@ -4,8 +4,6 @@ const Adapter = require('enzyme-adapter-react-16');
 const { tracks, albums } = require('./mockData.js');
 const Modules = require('../client/components');
 
-// console.log(Modules);
-
 const { shallow } = Enzyme;
 Enzyme.configure({ adapter: new Adapter() });
 
