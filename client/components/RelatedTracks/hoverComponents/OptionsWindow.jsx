@@ -7,13 +7,14 @@ class OptionsWindow extends React.Component {
   }
 
   render() {
+    const { setModalSong, track } = this.props;
     return (
       <div className="options-window">
         <span className="options-window-item">
           <span className="repost-image-options" alt="repostimg" />
           Repost
         </span>
-        <span className="options-window-item">
+        <span className="options-window-item" onClick={() => setModalSong(track)}>
           <span className="share-image-options" alt="repostspan" />
           Share
         </span>
@@ -23,7 +24,7 @@ class OptionsWindow extends React.Component {
         </span>
         <span className="options-window-item">
           <span className="addplaylist-image-options" alt="repostspan" />
-          Add to playlist
+          <span>Add to playlist</span>
         </span>
         <span className="options-window-item">
           <span className="station-image-options" alt="repostspan" />

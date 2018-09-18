@@ -19,11 +19,12 @@ class Container extends React.Component {
   }
 
   render() {
+    const { setModalSong, track } = this.props;
     return (
       <div>
         <PlayButton />
         <LikeButton />
-        <OptionsButton />
+        <OptionsButton setModalSong={setModalSong} track={track} />
       </div>
     );
   }

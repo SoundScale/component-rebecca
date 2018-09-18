@@ -15,6 +15,7 @@ class OptionsButton extends React.Component {
   }
 
   render() {
+    const { setModalSong, track } = this.props;
     const { clicked } = this.state;
     const click = this.optionsClick.bind(this);
     let button;
@@ -34,32 +35,10 @@ class OptionsButton extends React.Component {
         onClose={click}
         contentStyle={{ width: "200px", padding: "0px", border: "none" }}
       >
-        <OptionsWindow />
+        <OptionsWindow setModalSong={setModalSong} track={track} />
       </Popup>
     );
   }
 }
-
-//   render() {
-//     const { clicked } = this.state;
-//     const click = this.optionsClick.bind(this);
-//     if (clicked) {
-//       return <button type="button" className="sc-hover-button options-button-clicked" onClick={this.optionsClick.bind(this)} />;
-//     }
-//     return (
-//       <Popup
-//         trigger={() => (
-//           <button type="button" className="sc-hover-button options-button border-hover" />
-//         )}
-//         closeOnDocumentClick
-//         onOpen={click}
-//       >
-//         <OptionsWindow />
-//       </Popup>
-//     );
-//   }
-// }
-
-// return <button type="button" className="sc-hover-button options-button border-hover" onClick={this.optionsClick.bind(this)} />;
 
 module.exports = OptionsButton;
