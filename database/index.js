@@ -2,11 +2,11 @@ const Sequelize = require('sequelize');
 // const faker = require('faker');
 // const Promise = require('bluebird');
 
-const DATABASE = 'soundcloud';
+const DATABASE = 'relatedListsCom';
 
 const USER = 'root';
 
-const PASSWORD = 'blooper2010';
+const PASSWORD = '';
 
 const dbInit = new Sequelize('', USER, PASSWORD, {
   host: 'localhost',
@@ -24,7 +24,7 @@ dbInit.query(`CREATE DATABASE IF NOT EXISTS ${DATABASE}`)
     });
   });
 
-const db = new Sequelize('soundcloud', 'root', 'blooper2010', {
+const db = new Sequelize(DATABASE, USER, PASSWORD, {
   host: 'localhost',
   dialect: 'mysql',
   insecureAuth: true,
