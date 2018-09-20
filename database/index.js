@@ -1,15 +1,20 @@
 const Sequelize = require('sequelize');
-// const faker = require('faker');
-// const Promise = require('bluebird');
 
-const db = new Sequelize('soundcloud', 'root', 'blooper2010', {
+const DATABASE = 'relatedLists';
+
+const USER = 'root';
+
+const PASSWORD = 'blooper2010';
+
+const db = new Sequelize(DATABASE, USER, PASSWORD, {
   host: 'localhost',
   dialect: 'mysql',
   insecureAuth: true,
+  logging: false,
 });
 
 // Model Definition
-const Artist = db.define('artist', {
+const ArtistSchema = db.define('artist', {
   artistNumFollowers: {
     type: Sequelize.INTEGER,
   },
@@ -30,7 +35,7 @@ const Artist = db.define('artist', {
   },
 });
 
-const Song = db.define('song', {
+const SongSchema = db.define('song', {
   songTitle: {
     type: Sequelize.STRING,
   },
@@ -60,7 +65,7 @@ const Song = db.define('song', {
   },
 });
 
-const Album = db.define('album', {
+const AlbumSchema = db.define('album', {
   albumTitle: {
     type: Sequelize.STRING,
   },
@@ -72,7 +77,7 @@ const Album = db.define('album', {
   },
 });
 
-const RelatedSongs = db.define('relatedSongs', {});
+const RelatedSongsSchema = db.define('relatedSongs', {});
 
 // Establish Song/Artist relationship - Each Song will have a foreign key referencing its Artist
 Song.belongsTo(Artist);
@@ -86,6 +91,29 @@ Song.belongsToMany(Song, { as: 'relatedTracks', through: RelatedSongs });
 Album.belongsTo(Song);
 Album.belongsTo(Artist);
 Artist.hasMany(Album);
+
+
+const artist = (sequelize) => {
+  const Artist = sequelize.define('artist', ArtistSchema, { timestamps: false });
+  return Artist;
+};
+
+const song = (sequelize) => {
+  const Song = sequelize.define('artist', SongSchema, { timestamps: false });
+  return Song;
+};
+
+const album = (sequelize) => {
+  const Album = sequelize.define('artist', AlbumSchema, { timestamps: false });
+  return Album;
+};
+
+const relatedSong = (sequelize) => {
+  const RelatedSongs = sequelize.define('artist', RelatedSongsSchema, { timestamps: false });
+  return RelatedSongs;
+};
+
+module.exports = model;
 
 module.exports = {
   db,
