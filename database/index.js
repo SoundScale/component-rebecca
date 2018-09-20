@@ -2,11 +2,11 @@ const Sequelize = require('sequelize');
 // const faker = require('faker');
 // const Promise = require('bluebird');
 
-const DATABASE = 'testing';
+const DATABASE = 'relatedListsComponent';
 
 const USER = 'root';
 
-const PASSWORD = 'blooper2010';
+const PASSWORD = '';
 
 const dbInit = new Sequelize('', USER, PASSWORD, {
   host: 'localhost',
