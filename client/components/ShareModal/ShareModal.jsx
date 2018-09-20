@@ -8,13 +8,17 @@ class ShareModal extends React.Component {
     this.state = {};
   }
 
+  handleChildClick(e) {
+    e.stopPropagation();
+  }
+
   render() {
-    const { modalSong } = this.props;
+    const { modalSong, closeModal } = this.props;
     console.log('modalSong', modalSong);
     const shareLink = `https://soundcloud.com/${modalSong.artist.artistName.replace(/\s/g, '')}/${modalSong.songTitle.replace(/\s/g, '')}`
     return (
-      <div className="modal">
-        <div className="share-modal">
+      <div className="modal" onClick={closeModal}>
+        <div className="share-modal" onClick={this.handleChildClick}>
           <div className="share-model-top-info">
             <h1 className="modal-title-bar">
               <span className="modal-header">Share</span>
@@ -49,7 +53,7 @@ class ShareModal extends React.Component {
               </span>
               <span className="share-at">at</span>
               <span>
-                <input className="modal-song-time" type="text" defaultValue="0:00" />
+                <input className="modal-share-link modal-song-time" type="text" defaultValue="0:00" />
               </span>
             </div>
           </div>

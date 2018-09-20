@@ -26,16 +26,19 @@ class OptionsButton extends React.Component {
     }
     return (
       <Popup
+        key={track.songTitle}
         trigger={() => (
           button
         )}
+        on="click"
         closeOnDocumentClick
+        mouseLeaveDelay={1}
         arrow={false}
         onOpen={click}
         onClose={click}
-        contentStyle={{ width: "200px", padding: "0px", border: "none" }}
+        contentStyle={{ width: "150px", padding: "0px", border: "none" }}
       >
-        <OptionsWindow setModalSong={setModalSong} track={track} />
+        <OptionsWindow setModalSong={setModalSong} track={track} key={track.songTitle} />
       </Popup>
     );
   }

@@ -13,6 +13,7 @@ class RelatedTracks extends React.Component {
       modalSong: this.props.tracks[0],
     };
     this.setModalSong = this.setModalSong.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   setModalSong(song) {
@@ -20,6 +21,13 @@ class RelatedTracks extends React.Component {
       modalOpen: true,
       modalSong: song,
     });
+  }
+
+  closeModal() {
+    this.setState({
+      modalOpen: false,
+    });
+    console.log('clicked');
   }
 
   render() {
@@ -33,13 +41,13 @@ class RelatedTracks extends React.Component {
             <div className="track-container" key={index}>
               <Track track={track} />
               <div className="hover-container">
-                <HoverContainer track={track} setModalSong={this.setModalSong} />
+                <HoverContainer key={track.songTitle} track={track} setModalSong={this.setModalSong} />
               </div>
             </div>
           ))}
         </div>
         <Modal modalOpen={modalOpen}>
-          <ShareModal modalSong={modalSong} />
+          <ShareModal closeModal={this.closeModal} modalSong={modalSong} />
         </Modal>
       </div>
     );

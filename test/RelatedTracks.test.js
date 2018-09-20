@@ -11,6 +11,6 @@ describe('<RelatedTracks />', () => {
   test('Should render Related-Tracks-Wrapper and Track-List-Container', async () => {
     const wrapper = shallow(<Modules.RelatedTracks tracks={tracks} />);
 
-    expect(wrapper.find('div.related-tracks-wrapper').children()).toHaveLength(2);
+    expect(wrapper.find('div.related-tracks-wrapper').children()).toHaveLength(3);
   });
 });

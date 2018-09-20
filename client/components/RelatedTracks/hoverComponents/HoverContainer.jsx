@@ -11,11 +11,7 @@ const PlayButton = require('./playButton.jsx');
 class Container extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // playing: false,
-      // liked: false,
-      // options: false,
-    };
+    this.state = {};
   }
 
   render() {
@@ -24,7 +20,7 @@ class Container extends React.Component {
       <div>
         <PlayButton />
         <LikeButton />
-        <OptionsButton setModalSong={setModalSong} track={track} />
+        <OptionsButton setModalSong={setModalSong} track={track} key={track.songTitle} />
       </div>
     );
   }

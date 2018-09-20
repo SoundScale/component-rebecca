@@ -20,7 +20,6 @@ class ArtistPopUp extends React.Component {
 
   render() {
     const { artist } = this.props;
-    console.log(artist);
     const parent = `#${artist.artistName}`;
     return (
       <div
