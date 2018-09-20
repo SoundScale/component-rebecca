@@ -21,8 +21,8 @@
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
     "axios": "^0.18.0",
+    "babel-core": "^7.0.0-bridge.0",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
@@ -32,6 +32,7 @@
     "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
     "path": "^0.12.7",
+    "query-string": "^6.1.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-inlinesvg": "^0.8.1",
