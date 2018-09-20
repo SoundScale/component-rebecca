@@ -20,7 +20,7 @@ class RelatedComponents extends React.Component {
   }
 
   loadData() {
-    const songId = 2;
+    const songId = 3;
     axios.get(`http://localhost:3002/relatedTracks/${songId}`)
       .then(({ data }) => {
         console.log('Related Tracks', data);
