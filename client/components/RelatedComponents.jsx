@@ -4,6 +4,8 @@ const RelatedTracks = require('./RelatedTracks/RelatedTracks.jsx');
 const RelatedAlbums = require('./RelatedAlbums/RelatedAlbums.jsx');
 const { tracks, albums } = require('../../test/mockData.js');
 
+const queryString = require('query-string');
+
 class RelatedComponents extends React.Component {
   constructor(props) {
     super(props);
@@ -16,12 +18,13 @@ class RelatedComponents extends React.Component {
   }
 
   componentDidMount() {
-    this.loadData();
+    const parsed = queryString.parse(location.search);
+    this.loadData(Number(parsed.id));
   }
 
-  loadData() {
+  loadData(songNum) {
     const songId = 3;
-    axios.get(`http://localhost:3002/relatedTracks/${songId}`)
+    axios.get(`http://localhost:3002/relatedTracks/${songNum}`)
       .then(({ data }) => {
         console.log('Related Tracks', data);
         this.setState({ tracks: data, loadingTracks: false });
@@ -29,7 +32,7 @@ class RelatedComponents extends React.Component {
       .catch((error) => {
         console.log(error);
       });
-    axios.get(`http://localhost:3002/relatedAlbums/${songId}`)
+    axios.get(`http://localhost:3002/relatedAlbums/${songNum}`)
       .then(({ data }) => {
         console.log('Related Albums', data);
         this.setState({ albums: data, loadingAlbums: false });
