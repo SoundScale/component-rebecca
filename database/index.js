@@ -1,10 +1,27 @@
 const Sequelize = require('sequelize');
 
-const DATABASE = 'relatedLists';
+const DATABASE = 'relatedListsCom';
 
 const USER = 'root';
 
-const PASSWORD = 'blooper2010';
+const PASSWORD = '';
+
+const dbInit = new Sequelize('', USER, PASSWORD, {
+  host: 'localhost',
+  dialect: 'mysql',
+  logging: false,
+});
+
+dbInit.query(`CREATE DATABASE IF NOT EXISTS ${DATABASE}`)
+  .then(() => {
+    console.log(`Database ${DATABASE} created`);
+    const db = new Sequelize(DATABASE, USER, PASSWORD, {
+      host: 'localhost',
+      dialect: 'mysql',
+      logging: false,
+    });
+  });
+
 
 const db = new Sequelize(DATABASE, USER, PASSWORD, {
   host: 'localhost',
@@ -12,6 +29,7 @@ const db = new Sequelize(DATABASE, USER, PASSWORD, {
   insecureAuth: true,
   logging: false,
 });
+
 
 // Model Definition
 const ArtistSchema = db.define('artist', {
