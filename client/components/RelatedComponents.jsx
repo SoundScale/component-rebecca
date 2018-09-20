@@ -19,22 +19,22 @@ class RelatedComponents extends React.Component {
 
   componentDidMount() {
     const parsed = queryString.parse(location.search);
-    this.loadData(Number(parsed.id));
+    this.loadData();
   }
 
-  loadData(songNum) {
-    const songId = 3;
-    axios.get(`http://localhost:3002/relatedTracks/${songNum}`)
+  loadData() {
+    const songId = (window.location.href).slice(-2);
+    axios.get(`/relatedTracks/${songId}`)
       .then(({ data }) => {
-        console.log('Related Tracks', data);
+        // console.log('Related Tracks', data);
         this.setState({ tracks: data, loadingTracks: false });
       })
       .catch((error) => {
         console.log(error);
       });
-    axios.get(`http://localhost:3002/relatedAlbums/${songNum}`)
+    axios.get(`/relatedAlbums/${songId}`)
       .then(({ data }) => {
-        console.log('Related Albums', data);
+        // console.log('Related Albums', data);
         this.setState({ albums: data, loadingAlbums: false });
       })
       .catch((error) => {

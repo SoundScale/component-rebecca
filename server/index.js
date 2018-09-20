@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use('/', express.static('public'));
 
-app.get('/:id', (req, res) => {
+app.get('/song/:id', (req, res) => {
   res.send('Hello World!');
 });
 

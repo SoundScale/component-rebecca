@@ -3,8 +3,8 @@
   /* border: 1px solid red;
   background-color:lightgrey; */
   position: absolute;
-  top: 500px;
-  right: 0px;
+  top: 404px;
+  right: -19px;
   width: 400px;
   height: 240px;
   display: grid;
@@ -191,6 +191,7 @@
   padding: 0px;
   height: 20px;
   text-align: left;
+  text-align: top;
   display: grid;
   grid-template-columns: 18px auto;
   z-index: 1;
@@ -400,9 +401,9 @@
   /* background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8); */
   position: absolute;
-  top: 775px;
+  top: 661px;
   padding: 0px;
-  right: 5px;
+  right: -19px;
   width: 400px;
   height: 240px;
   display: grid;
