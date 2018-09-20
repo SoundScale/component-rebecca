@@ -2,11 +2,34 @@ const Sequelize = require('sequelize');
 // const faker = require('faker');
 // const Promise = require('bluebird');
 
+const DATABASE = 'soundcloud';
+
+const USER = 'root';
+
+const PASSWORD = 'blooper2010';
+
+const dbInit = new Sequelize('', USER, PASSWORD, {
+  host: 'localhost',
+  dialect: 'mysql',
+  logging: false,
+});
+
+dbInit.query(`CREATE DATABASE IF NOT EXISTS ${DATABASE}`)
+  .then(() => {
+    console.log(`Database ${DATABASE} created`);
+    const db = new Sequelize(DATABASE, USER, PASSWORD, {
+      host: 'localhost',
+      dialect: 'mysql',
+      logging: false,
+    });
+  });
+
 const db = new Sequelize('soundcloud', 'root', 'blooper2010', {
   host: 'localhost',
   dialect: 'mysql',
   insecureAuth: true,
 });
+
 
 // Model Definition
 const Artist = db.define('artist', {
