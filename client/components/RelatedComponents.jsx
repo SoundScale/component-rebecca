@@ -4,8 +4,6 @@ const RelatedTracks = require('./RelatedTracks/RelatedTracks.jsx');
 const RelatedAlbums = require('./RelatedAlbums/RelatedAlbums.jsx');
 const { tracks, albums } = require('../../test/mockData.js');
 
-const queryString = require('query-string');
-
 class RelatedComponents extends React.Component {
   constructor(props) {
     super(props);
@@ -18,12 +16,12 @@ class RelatedComponents extends React.Component {
   }
 
   componentDidMount() {
-    const parsed = queryString.parse(location.search);
     this.loadData();
   }
 
   loadData() {
-    const songId = (window.location.href).slice(-2);
+    const path = (window.location.pathname).split('/');
+    const songId = path[path.length - 2];
     axios.get(`/relatedTracks/${songId}`)
       .then(({ data }) => {
         // console.log('Related Tracks', data);
