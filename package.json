@@ -11,8 +11,9 @@
     "seedSQL": "node database/index.js",
     "seedSEQ": "node database/seed.js",
     "build": "webpack -d --watch",
-    "start": "nodemon server/index.js",
-    "test": "jest --coverage"
+    "start": "node database/index.js & nodemon server/index.js",
+    "test": "jest --coverage",
+    "star": "nodemon server/index.js"
   },
   "jest": {
     "transform": {
@@ -32,6 +33,7 @@
     "jquery": "^3.3.1",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
+    "nodemon": "^1.18.4",
     "path": "^0.12.7",
     "query-string": "^6.1.0",
     "react": "^16.5.0",

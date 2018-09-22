@@ -1,0 +1,21 @@
+
+
+version: '3'
+
+services:
+  related_lists:
+    build: .
+    depends_on:
+      - 'mysql'
+    ports:
+      - '3010:3002'
+    links: 
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABSE: relatedListsComponent

@@ -24,7 +24,7 @@ class RelatedComponents extends React.Component {
     const songId = path[path.length - 2];
     axios.get(`/relatedTracks/${songId}`)
       .then(({ data }) => {
-        // console.log('Related Tracks', data);
+        console.log('Related Tracks', data);
         this.setState({ tracks: data, loadingTracks: false });
       })
       .catch((error) => {
@@ -32,7 +32,7 @@ class RelatedComponents extends React.Component {
       });
     axios.get(`/relatedAlbums/${songId}`)
       .then(({ data }) => {
-        // console.log('Related Albums', data);
+        console.log('Related Albums', data);
         this.setState({ albums: data, loadingAlbums: false });
       })
       .catch((error) => {

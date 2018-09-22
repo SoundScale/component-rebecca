@@ -9,9 +9,9 @@ const app = express();
 
 app.use(cors());
 
-app.use('/', express.static('public'));
+app.use('/songs/:id', express.static('public'));
 
-app.get('/song/:id', (req, res) => {
+app.get('/:id', (req, res) => {
   res.send('Hello World!');
 });
 

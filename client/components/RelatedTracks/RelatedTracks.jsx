@@ -33,6 +33,7 @@ class RelatedTracks extends React.Component {
   render() {
     const { tracks } = this.props;
     const { modalOpen, modalSong } = this.state;
+    console.log('tracks =>', tracks);
     return (
       <div className="related-tracks-wrapper">
         <RelatedTracksTitle />
