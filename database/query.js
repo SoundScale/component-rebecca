@@ -119,6 +119,25 @@ const getRelatedTracks = (songId, callback) => {
     });
 };
 
+const createRelatedTracks = (songId, callback) => {
+
+};
+
+const deleteRelatedTracks = (songId, callback) => {
+  RelatedSongs.destroy({
+    where: {
+      id: songId
+    }
+  })
+  .then(()=>{
+    callback(null)
+  })
+};
+
+const updateRelatedTracks = (songId, callback) => {
+
+};
+
 // // Return Artist information for any artistId
 // const getArtistInfo = (artistId, callback) => {
 //   Artist.find({
@@ -143,6 +162,25 @@ const getRelatedAlbums = (songId, callback) => {
     albums.forEach(album => relatedAlbums.push(album.dataValues));
     callback(relatedAlbums);
   });
+};
+
+// const createRelatedAlbums = (songId, callback) => {
+
+// };
+
+const deleteRelatedAlbums = (songId, callback) => {
+  Album.destroy({
+    where: {
+      songId
+    }
+  })
+  .then(()=>{
+    callback(null)
+  })
+};
+
+const updateRelatedAlbums = (songId, callback) => {
+
 };
 
 module.exports.getRelatedTracks = getRelatedTracks;
