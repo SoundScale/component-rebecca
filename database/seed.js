@@ -37,7 +37,7 @@ const buildData = (numOfSongs) => {
       artistCity: faker.address.city(),
       artistCountry: faker.address.country(),
       artistProfileImage: faker.image.avatar(),
-      artistVerified: Math.random() >= 0.5,
+      // artistVerified: Math.random() >= 0.5,
       artistName: faker.name.lastName(),
     });
   }
@@ -45,9 +45,9 @@ const buildData = (numOfSongs) => {
     songs.push({
       songTitle: faker.name.jobTitle(),
       songImage: faker.image.avatar(),
-      songLength: `${getRandomInt(4)}:${getRandomInt(59)}`,
-      songGenre: faker.lorem.word(),
-      songPostedDate: `${getRandomInt(9)} years ago`,
+      // songLength: `${getRandomInt(4)}:${getRandomInt(59)}`,
+      // songGenre: faker.lorem.word(),
+      // songPostedDate: `${getRandomInt(9)} years ago`,
       songNumPlays: getRandomInt(2000000),
       songNumLikes: getRandomInt(1500000),
       songNumReposts: getRandomInt(20000),
