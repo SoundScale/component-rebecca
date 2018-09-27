@@ -156,6 +156,10 @@ const getSong = (songId, callback) => {
 //songNumPlays, songNumLikes, songNumReposts, songNumComments, artistId}
 const createSong = (songObj, callback) => {
   Song.create(songObj)
+  // .then(()=>{
+    //INSERT FUNCTION THAT GETS NUMBER OF IDS IN SONG TABLE, SETS THAT
+    //AS SONG ID, THEN ADDS {SONGID, RELATED TRACKS: RANDOM NUMBER} THREE TIMES IN DATABASE
+  // })
   .then(()=> {
     callback();
   })
@@ -175,6 +179,11 @@ const deleteSong = (songId, callback) => {
   Song.destroy({
     where: {
       id: songId
+    }
+  })
+  .then(RelatedSongs.destroy({
+    where: {
+      songId
     }
   })
   .then((res) => {

@@ -1,0 +1,69 @@
+Wed:
+-Build CRUD API
+	-Build CRUD routes for Song
+		-Stretch: Album, Artist
+
+Thurs:
+-Build Data generation script that produces 10M records
+	-[ASK] Generate into CSV, one CSV per table?
+		-4 Tables as CSV
+
+Fri-Wed:
+-Load data into two databases
+	-Postgres
+		-Set up postgres
+		-Write script to load data, define relationships
+	-Cassandra
+		-Set up Cassandra
+		-Write script to load data, define relationships
+-Verify that queries used by API will run under 50s
+	-Confirm performance by running queries used by API by
+		-Writing tests
+		-Using DB console to execute and time queries
+-Benchmark execution times of both systems with 10M records
+	-Test both read and write speeds before and after optimizations
+	-Benchmark using databases' native function
+
+Thurs-Sun:
+-Set up New Relic for performance monitoring
+	-Measure response time, throughput and error rate
+-Stress test service with New Relic (service in development)
+	-[ASK] - using Httperf, Jmeter or Artillery for load testing	
+	-Scale number of requests per second to [EACH TABLE'S?] GET and POST routes from 1, 10, 100, to 1K
+-Show service RPS with setup/config details and sample results
+
+-Stress test proxy with New Relic (proxy in development)
+	-[ASK] - using Httperf, Jmeter or Artillery for load testing
+-Show proxy RPS with setup/config details and sample results
+
+Mon-Fri:
+-Deploy to EC2 [ASK - this before New Relic^?]
+
+-Monitor performance and load test service with New Relic and loader.io (service on EC2)
+	-DO NOT use laptop, use loader.io
+	-Reach 100 RPS with an error rate of less than 1% and latency of less than 2000ms
+
+-Show service RPS with setup/config details and sample results
+
+-Refactor proxy server for server-side rendering
+	-Can be static
+	-[ASK] - how to do this?
+
+-Monitor + Stress test proxy with New Relic (proxy on EC2)
+	-Turn off all services except my own
+	-Stress test GET and POST requests for each route of service? [ASK]
+	-Scale number of requests from 1, 10, 100, 1K RPS
+
+-Once entire team has deployed services, stress test deployed proxy
+-Run Google Page Speed against proxy server and implement recommended improvements
+
+-Show proxy RPS with setup/config details and sample results
+
+Other questions:
+-What determines execution time? What are the inputs into calculating execution time?
+-
+
+
+Stress testing is not intended to measure page fully rendered state; i.e. if working on a media widget, you do not measure load times of your media. When your page is fully rendered on the server, loading of HTML+CSS is sufficient for a request to be considered complete (time to first render).
+
+When stress-testing, it's important to create a realistic scenario. The number of concurrent users is important, as is the ratio of total requests to concurrent users (think about how many requests you could personally generate per second using your mouse and web browser -- not many). Additionally, these concurrent users should not all be requesting the same page.
