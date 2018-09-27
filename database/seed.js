@@ -119,15 +119,15 @@ const genRelatedSongsData = (numOfRelated, count) => {
 const buildData = (numOfData, noOfChunks) => {
 	let chunkSize = numOfData/noOfChunks;
   createSongDataFile();
-  genSongData(chunkSize, chunks);
+  genSongData(chunkSize, noOfChunks);
   createArtistDataFile();
-  genArtistData(Math.floor(chunkSize/3), chunks);
+  genArtistData(Math.floor(chunkSize/3), noOfChunks);
   createAlbumDataFile();
-  genAlbumData(Math.floor(chunkSize/3), chunks);
+  genAlbumData(Math.floor(chunkSize/3), noOfChunks);
   createAlbumDataFile();
-  genAlbumData(nchunkSize, chunks);
+  genAlbumData(nchunkSize, noOfChunks);
   createRelatedSongsDataFile();
-  genRelatedSongsData(chunkSize, chunks);
+  genRelatedSongsData(chunkSize, noOfChunks);
 }
 
 buildData(10000000, 1000);
