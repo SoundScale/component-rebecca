@@ -109,7 +109,7 @@ const createDB = () => {
 
       // Establish Album relationships - Each Song belongs to 3 unique Albums,
       // an Album belongs to an Artist, and an Artist has many Albums
-      Album.belongsTo(Song);
+      // Album.belongsTo(Song);
       Album.belongsTo(Artist);
       Artist.hasMany(Album);
 

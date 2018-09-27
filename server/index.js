@@ -3,6 +3,11 @@ const cors = require('cors');
 const {
   getRelatedTracks,
   getRelatedAlbums,
+  getSongs,
+  getSong,
+  createSong,
+  updateSong,
+  deleteSong
 } = require('../database/query.js');
 
 const app = express();
@@ -11,9 +16,9 @@ app.use(cors());
 
 app.use('/songs/:id', express.static('public'));
 
-app.get('/:id', (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/:id', (req, res) => {
+//   res.send('Hello World!');
+// });
 
 app.get('/relatedTracks/:id', (req, res) => {
   getRelatedTracks(req.params.id, data => res.json(data));
@@ -23,28 +28,26 @@ app.get('/relatedAlbums/:id', (req, res) => {
   getRelatedAlbums(req.params.id, data => res.json(data));
 });
 
-app.post('/song/:id', (req, res) => {
-
+app.get('/songs/', (req, res) => {
+	getSong(req.params.id, data => res.json(data));
 });
 
-app.post('/relatedAlbums/:id', (req, res) => {
-
+app.get('/songs/:id', (req, res) => {
+	getSong(req.params.id, data => res.json(data));
 });
 
-app.put('/relatedTracks/:id', (req, res) => {
 
+app.post('/songs/:id', (req, res) => {
+	createSong(req.params.id, data => res.send());
 });
 
-app.put('/relatedAlbums/:id', (req, res) => {
 
+app.put('/songs/:id', (req, res) => {
+	updateSong(req.params.id, data => res.send());
 });
 
-app.delete('/relatedTracks/:id', (req, res) => {
-	deleteRelatedTracks(req.params.id, data => res.send());
-});
-
-app.delete('/relatedAlbums/:id', (req, res) => {
-	deleteRelatedAlbums(req.params.id, data => res.send());
+app.delete('/songs/:id', (req, res) => {
+	deleteSong(req.params.id, data => res.send());
 });
 
 app.listen(3002, () => console.log('Example app listening on port 3002!'));

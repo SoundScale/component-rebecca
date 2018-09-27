@@ -119,36 +119,6 @@ const getRelatedTracks = (songId, callback) => {
     });
 };
 
-const createRelatedTracks = (songId, callback) => {
-
-};
-
-const deleteRelatedTracks = (songId, callback) => {
-  RelatedSongs.destroy({
-    where: {
-      id: songId
-    }
-  })
-  .then(()=>{
-    callback(null)
-  })
-};
-
-const updateRelatedTracks = (songId, callback) => {
-
-};
-
-// // Return Artist information for any artistId
-// const getArtistInfo = (artistId, callback) => {
-//   Artist.find({
-//     where: {
-//       id: artistId,
-//     },
-//   }).then(artist => callback(artist.dataValues));
-// };
-
-// Return an array of related Albums for any songId
-// along with the artist info for each album
 const getRelatedAlbums = (songId, callback) => {
   const relatedAlbums = [];
   Album.findAll({
@@ -164,25 +134,66 @@ const getRelatedAlbums = (songId, callback) => {
   });
 };
 
-// const createRelatedAlbums = (songId, callback) => {
+const getSongs = (callback) => {
+  Song.findAll()
+  .then((res) => {
+    callback(res);
+  });
+};
 
-// };
-
-const deleteRelatedAlbums = (songId, callback) => {
-  Album.destroy({
+const getSong = (songId, callback) => {
+  Song.findAll({
     where: {
-      songId
+      id: songId
     }
   })
-  .then(()=>{
-    callback(null)
+  .then((res) => {
+    callback(res);
+  });
+};
+
+//Assumes receives object containing {songTitle, songImage, 
+//songNumPlays, songNumLikes, songNumReposts, songNumComments, artistId}
+const createSong = (songObj, callback) => {
+  Song.create(songObj)
+  .then(()=> {
+    callback();
   })
 };
 
-const updateRelatedAlbums = (songId, callback) => {
-
+const updateSong = (songObj, callback) => {
+  Song.update(songObj, {
+    where: {
+      id: songId}
+  })
+  .then(()=>{
+    callback();
+  })
 };
+
+const deleteSong = (songId, callback) => {
+  Song.destroy({
+    where: {
+      id: songId
+    }
+  })
+  .then((res) => {
+    callback(res);
+  });
+};
+
+
+
+
 
 module.exports.getRelatedTracks = getRelatedTracks;
 // module.exports.getArtistInfo = getArtistInfo;
 module.exports.getRelatedAlbums = getRelatedAlbums;
+module.exports.getSongs = getSongs;
+module.exports.getSong = getSong;
+module.exports.createSong = createSong;
+module.exports.updateSong = updateSong;
+module.exports.deleteSong = deleteSong;
+
+
+
