@@ -27,6 +27,17 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - etc
 
 ## Development
+CRUD Routes:
+	-Songs
+		-All songs ('/songs/')
+			Supports:
+				-GET
+		-Single song ('/songs/:id')
+			Supports:
+				-GET
+				-POST
+				-UPDATE
+				-DELETE
 
 ### Installing Dependencies
 
@@ -36,4 +47,5 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+
 
