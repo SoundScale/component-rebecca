@@ -1,20 +1,20 @@
-Wed:
--Build CRUD API
-	-Build CRUD routes for Song
-		-Stretch: Album, Artist
+// Wed:
+// -Build CRUD API
+// 	-Build CRUD routes for Song
+// 		-Stretch: Album, Artist
 
-Thurs:
--Build Data generation script that produces 10M records
-	-[ASK] Generate into CSV, one CSV per table?
-		-4 Tables as CSV
+// Thurs:
+// -Build Data generation script that produces 10M records
+// 	-[ASK] Generate into CSV, one CSV per table?
+// 		-4 Tables as CSV
 
 Fri-Wed:
 -Load data into two databases
-	-Postgres
-		-Set up postgres
-		-Write script to load data, define relationships
-	-Cassandra
-		-Set up Cassandra
+	// -Postgres
+	// 	-Set up postgres
+	// 	-Write script to load data, define relationships
+	-Mongo
+		// -Set up Mongo
 		-Write script to load data, define relationships
 -Verify that queries used by API will run under 50s
 	-Confirm performance by running queries used by API by

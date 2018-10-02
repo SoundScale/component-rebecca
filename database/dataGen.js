@@ -18,32 +18,6 @@ const getUniqueRelatedTracks = (songId, numOfSongs) => {
 };
 
 //DATA GENERATION
-//Generate Album table data file
-const createAlbumDataFile = () => {
-	fs.writeFile('./data/albumData.csv', 'id, albumTitle, albumType, albumImage, artistId, songId\n', function (err) {
-	  if (err) throw err;
-	  console.log('Album File Created!');
-	});
-}
-
-//Generate Album table data file
-let albumId = 1;
-const genAlbumData = (numOfAlbums, count) => {
-  let csv = '';
-	for (let i=0; i < numOfAlbums; i++) {
-		for (let j=0; j < 3; j++) {
-			csv += `${albumId}, ${faker.commerce.productName()}, ${faker.random.word()}, ${faker.image.avatar()}, ${getRandomInt(numOfAlbums/ 3)}, ${i}\n`
-			albumId++;
-		};
-	};
-	fs.appendFile('./data/albumData.csv', csv, function (err) {
-	  if (err) throw err;
-	  console.log(`${numOfAlbums} albums added!`);
-    if (count>1) {
-      genAlbumData(numOfAlbums, --count)
-    }
-	});
-}
 
 //Create Song table data file
 const createSongDataFile = () => {
@@ -64,6 +38,33 @@ const genSongData = (numOfSongs, count) => {
 	  console.log(`${numOfSongs} songs added!`);
     if (count>1) {
       genSongData(numOfSongs, --count)
+    }
+	});
+}
+
+//Generate Album table data file
+const createAlbumDataFile = () => {
+	fs.writeFile('./data/albumData.csv', 'id, albumTitle, albumType, albumImage, artistId, songId\n', function (err) {
+	  if (err) throw err;
+	  console.log('Album File Created!');
+	});
+}
+
+//Generate Album table data file
+let albumId = 1;
+const genAlbumData = (numOfAlbums, count) => {
+  let csv = '';
+	for (let i=0; i < numOfAlbums; i++) {
+		for (let j=0; j < 3; j++) {
+			csv += `${albumId}, ${faker.commerce.productName()}, ${faker.random.word()}, ${faker.image.avatar()}, ${getRandomInt(numOfAlbums/ 3)}, ${(count*numOfAlbums)-i}\n`
+			albumId++;
+		};
+	};
+	fs.appendFile('./data/albumData.csv', csv, function (err) {
+	  if (err) throw err;
+	  console.log(`${numOfAlbums} albums added!`);
+    if (count>1) {
+      genAlbumData(numOfAlbums, --count)
     }
 	});
 }
@@ -116,6 +117,33 @@ const genRelatedSongsData = (numOfRelated, count) => {
     }
 	});
 }
+
+//Create RelatedSongs table data file - UPDATED SCHEMA FOR MONGO. RELATED TRACKS STORED AS ARRAY.
+const createRelatedSongsDataFileMongo = () => {
+	fs.writeFile('./data/relatedSongsData-Mongo.csv', 'songId, relatedTrackId\n', function (err) {
+	  if (err) throw err;
+	  console.log('Related Data File Created!');
+	});
+}
+
+//Generate RelatedSongs table data file
+const genRelatedSongsDataMongo = (numOfRelated, count) => {
+  let csv = '';
+	for (let i=0; i < numOfRelated; i++) {
+		const tracks = getUniqueRelatedTracks(i, numOfRelated);
+		csv += `${(count*numOfRelated)-i}, ${JSON.stringify(tracks)}\n`
+	};
+	fs.appendFile('./data/relatedSongsData-Mongo.csv', csv, function (err) {
+	  if (err) throw err;
+	  console.log(`${numOfRelated} related songs added!`);
+    if (count>1) {
+      genRelatedSongsData(numOfRelated, --count)
+    }
+	});
+}
+
+//BUILD DATA
+
 const buildData = (numOfData, noOfChunks) => {
 	let chunkSize = numOfData/noOfChunks;
   createSongDataFile();
@@ -123,11 +151,11 @@ const buildData = (numOfData, noOfChunks) => {
   createArtistDataFile();
   genArtistData(Math.floor(chunkSize/3), noOfChunks);
   createAlbumDataFile();
-  genAlbumData(Math.floor(chunkSize/3), noOfChunks);
-  createAlbumDataFile();
-  genAlbumData(nchunkSize, noOfChunks);
+  genAlbumData(chunkSize, noOfChunks);
   createRelatedSongsDataFile();
   genRelatedSongsData(chunkSize, noOfChunks);
+  createRelatedSongsDataFileMongo();
+  genRelatedSongsDataMongo(chunkSize, noOfChunks);
 }
 
 buildData(10000000, 1000);
