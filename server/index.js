@@ -22,11 +22,12 @@ app.use('/songs/:id', express.static('public'));
 // });
 
 app.get('/relatedTracks/:id', (req, res) => {
+  console.log('related tracks endpoint hit');
   getRelatedTracks(req.params.id, data => res.json(data));
 });
 
 app.get('/relatedAlbums/:id', (req, res) => {
-  console.log('RELATED ALBUMS REQUESTED', req.params.id);
+  console.log('related albums endpoint hit');
   getRelatedAlbums(req.params.id, data => res.json(data));
 });
 
