@@ -20,10 +20,11 @@ const getUniqueRelatedTracks = (songId, numOfSongs) => {
 //DATA GENERATION
 
 //Create Song table data file
-const createSongDataFile = () => {
+const createSongDataFile = (numOfSongs, count) => {
 	fs.writeFile('./data/songData.csv', 'id, songImage, songNumPlays, songNumLikes, songNumReposts, songNumComments, artistId\n', function (err) {
 	  if (err) throw err;
 	  console.log('Song File Created!');
+	  genSongData(numOfSongs, count);
 	});
 }
 
@@ -43,10 +44,11 @@ const genSongData = (numOfSongs, count) => {
 }
 
 //Generate Album table data file
-const createAlbumDataFile = () => {
+const createAlbumDataFile = (numOfAlbums, count) => {
 	fs.writeFile('./data/albumData.csv', 'id, albumTitle, albumType, albumImage, artistId, songId\n', function (err) {
 	  if (err) throw err;
 	  console.log('Album File Created!');
+	  genAlbumData(numOfAlbums, count);
 	});
 }
 
@@ -70,10 +72,11 @@ const genAlbumData = (numOfAlbums, count) => {
 }
 
 //Create Artist table data file
-const createArtistDataFile = () => {
+const createArtistDataFile = (numOfArtists, count) => {
 	fs.writeFile('./data/artistData.csv', 'id, artistNumFollowers, artistCity, artistCountry, artistProfileImage, artistName\n', function (err) {
 	  if (err) throw err;
 	  console.log('Artist File Created!');
+	  genArtistData(numOfArtists, count);
 	});
 }
 
@@ -93,20 +96,21 @@ const genArtistData = (numOfArtists, count) => {
 }
 
 //Create RelatedSongs table data file
-const createRelatedSongsDataFile = () => {
+const createRelatedSongsDataFile = (numOfRelated, count) => {
 	fs.writeFile('./data/relatedSongsData.csv', 'songId, relatedTrackId\n', function (err) {
 	  if (err) throw err;
 	  console.log('Related Data File Created!');
+	  genRelatedSongsData(numOfRelated, count)
 	});
 }
 
 //Generate RelatedSongs table data file
 const genRelatedSongsData = (numOfRelated, count) => {
   let csv = '';
-	for (let i=0; i < numOfRelated; i++) {
-		const tracks = getUniqueRelatedTracks(i, numOfRelated);
-		tracks.forEach((track)=>{
-			csv += `${(count*numOfRelated)-i}, ${track}\n`
+	for (let i = 0; i < numOfRelated; i++) {
+		const tracks = getUniqueRelatedTracks(i, 10000000);
+		tracks.forEach((track) => {
+			csv += `${(count*numOfRelated) - i}, ${track}\n`;
 		})
 	};
 	fs.appendFile('./data/relatedSongsData.csv', csv, function (err) {
@@ -119,10 +123,11 @@ const genRelatedSongsData = (numOfRelated, count) => {
 }
 
 //Create RelatedSongs table data file - UPDATED SCHEMA FOR MONGO. RELATED TRACKS STORED AS ARRAY.
-const createRelatedSongsDataFileMongo = () => {
+const createRelatedSongsDataFileMongo = (numOfRelated, count) => {
 	fs.writeFile('./data/relatedSongsData-Mongo.csv', 'songId, relatedTrackId\n', function (err) {
 	  if (err) throw err;
 	  console.log('Related Data File Created!');
+	  genRelatedSongsDataMongo(numOfRelated, count);
 	});
 }
 
@@ -146,16 +151,11 @@ const genRelatedSongsDataMongo = (numOfRelated, count) => {
 
 const buildData = (numOfData, noOfChunks) => {
 	let chunkSize = numOfData/noOfChunks;
-  createSongDataFile();
-  genSongData(chunkSize, noOfChunks);
-  createArtistDataFile();
-  genArtistData(Math.floor(chunkSize/3), noOfChunks);
-  createAlbumDataFile();
-  genAlbumData(chunkSize, noOfChunks);
-  createRelatedSongsDataFile();
-  genRelatedSongsData(chunkSize, noOfChunks);
-  createRelatedSongsDataFileMongo();
-  genRelatedSongsDataMongo(chunkSize, noOfChunks);
+  // createSongDataFile(chunkSize, noOfChunks);
+  // createArtistDataFile(Math.floor(chunkSize/3), noOfChunks);
+  // createAlbumDataFile(chunkSize, noOfChunks);
+  createRelatedSongsDataFile(chunkSize, noOfChunks);
+  // createRelatedSongsDataFileMongo(chunkSize, noOfChunks);
 }
 
 buildData(10000000, 1000);

@@ -1,3 +1,15 @@
+--Enter into psql:
+-- \i '/Users/rebeccayip/Dropbox (Personal)/hackreactor102/soundscale/component-rebecca-relatedLists/database/postgres/schema.sql'
+
+DROP TABLE IF EXISTS SongDir CASCADE;
+
+CREATE TABLE SongDir (
+  id int NOT NULL,
+  songTitle text
+);
+
+-- \copy SongDir FROM '/Users/rebeccayip/Dropbox (Personal)/hackreactor102/soundscale/component-rebecca-relatedLists/database/data/names.csv' DELIMITER ',' CSV;
+
 
 DROP TABLE IF EXISTS Artist CASCADE;
 
@@ -24,6 +36,7 @@ CREATE TABLE Song (
   artistId int references Artist(id)
 );
 
+CREATE INDEX ON Song(id);
 -- \copy Song(id, songImage, songNumPlays, songNumLikes, songNumReposts, songNumComments, artistId) FROM '/Users/rebeccayip/Dropbox (Personal)/hackreactor102/soundscale/component-rebecca-relatedLists/database/data/songData.csv' DELIMITER ',' CSV HEADER;
 
 
@@ -38,6 +51,7 @@ CREATE TABLE Album (
   songId int references Song(id)
 );
 
+CREATE INDEX ON Album(songId);
 -- \copy Album(id, albumTitle, albumType, albumImage, artistId, songId) FROM '/Users/rebeccayip/Dropbox (Personal)/hackreactor102/soundscale/component-rebecca-relatedLists/database/data/albumData.csv' DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS RelatedSongs;
